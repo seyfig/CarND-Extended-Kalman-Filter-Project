@@ -77,7 +77,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
   float srs = sqrt(ss);
   // square root cube sum
   float srcs = ss * srs;
-  if (ss == 0) {
+  if (fabs(ss) < 0.0001) {
     std::cout << "KalmanFilter::UpdateEKF - Division by zero error" << std::endl;
     return Hj;
   }
