@@ -1,7 +1,14 @@
-# Extended Kalman Filter Project Starter Code
-Self-Driving Car Engineer Nanodegree Program
+# Extended Kalman Filter
+[Udacity - Self-Driving Car NanoDegree Extended Kalman Filter Project]
+(https://github.com/udacity/CarND-Extended-Kalman-Filter-Project)
 
+
+## Overview
 ---
+
+In this project, to aim is to implement the extended Kalman Filter in c++. LIDAR and RADAR measurements detecting a bicycle that travels around the vehicle, were provided by Udacity.
+
+# This is the initial commit, contains sections from the README.md of the Udacity CarND-Extended-Kalman-Filter-Project master REPO
 
 ## Dependencies
 
@@ -20,7 +27,7 @@ Self-Driving Car Engineer Nanodegree Program
 
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make` 
+3. Compile: `cmake .. && make`
    * On windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
 4. Run it: `./ExtendedKF path/to/input.txt path/to/output.txt`. You can find
    some sample inputs in 'data/'.
