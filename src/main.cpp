@@ -165,17 +165,6 @@ int main(int argc, char* argv[]) {
 
     estimations.push_back(fusionEKF.ekf_.x_);
     ground_truth.push_back(gt_pack_list[k].gt_values_);
-
-    /* TODO DEBUG SQUARE ERROR*/
-    /*
-    VectorXd e = fusionEKF.ekf_.x_;
-    VectorXd g = gt_pack_list[k].gt_values_;
-    VectorXd residual = e - g;
-    for(int i=0; i < residual.size(); ++i){
-      residual(i) = residual(i) * residual(i);
-    }
-    cout<<residual.transpose()<<endl;
-    */
   }
 
   // compute the accuracy (RMSE)

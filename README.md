@@ -8,7 +8,35 @@
 
 In this project, to aim is to implement the extended Kalman Filter in c++. LIDAR and RADAR measurements detecting a bicycle that travels around the vehicle, were provided by Udacity.
 
-# This is the initial commit, contains sections from the README.md of the Udacity CarND-Extended-Kalman-Filter-Project master REPO
+## The Project
+
+The changes performed to implement Extended Kalman Filter can be listed as follows.
+
+* Complete CalculateRMSE and CalculateJacobian functions in the Tools class.
+* Complete Predict, Update, and UpdateEKF functions in KalmanFilter class.
+* Complete FusionEKF, and ProcessMeasurement functions in FusionEKF class.
+
+
+### RMSE
+
+The RMSE values for the two files are given in the table below.
+
+| RMSE | file 1     | file 2    |
+|:----:|:----------:|:---------:|
+|  px  |  0.0651648 | 0.185495  |
+|  py  |  0.0605379 | 0.190302  |
+|  vx  |  0.533212  | 0.487137  |
+|  vy  |  0.544193  | 0.810657  |
+
+I have also experimented to change the initialization with LASER measurements when both px and py were zero. However, this resulted in increase for the some of the RMSE values. The table for the new RMSE values, for the small number to change with zero are given in the table below. Only the second file was used.
+
+| RMSE |0        | 0.1      | 0.01     | 0.001    | 0.0001   |
+|:----:|:-------:|:--------:|:--------:|:--------:|:--------:|
+|  px  |0.185495 | 0.185917 | 0.185694 | 0.185692 | 0.185692 |
+|  py  |0.190302 | 0.190402 | 0.190209 | 0.190207 | 0.190207 |
+|  vx  |0.487137 | 0.479301 | 0.47926  | 0.47926  | 0.47926  |
+|  vy  |0.810657 | 0.828168 | 0.82795  | 0.827929 | 0.827927 |
+
 
 ## Dependencies
 
@@ -22,71 +50,3 @@ In this project, to aim is to implement the extended Kalman Filter in c++. LIDAR
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools]((https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
-
-## Basic Build Instructions
-
-1. Clone this repo.
-2. Make a build directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-   * On windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
-4. Run it: `./ExtendedKF path/to/input.txt path/to/output.txt`. You can find
-   some sample inputs in 'data/'.
-    - eg. `./ExtendedKF ../data/sample-laser-radar-measurement-data-1.txt output.txt`
-
-## Editor Settings
-
-We've purposefully kept editor configuration files out of this repo in order to
-keep it as simple and environment agnostic as possible. However, we recommend
-using the following settings:
-
-* indent using spaces
-* set tab width to 2 spaces (keeps the matrices in source code aligned)
-
-## Code Style
-
-Please (do your best to) stick to [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
-
-## Generating Additional Data
-
-This is optional!
-
-If you'd like to generate your own radar and lidar data, see the
-[utilities repo](https://github.com/udacity/CarND-Mercedes-SF-Utilities) for
-Matlab scripts that can generate additional data.
-
-## Project Instructions and Rubric
-
-Note: regardless of the changes you make, your project must be buildable using
-cmake and make!
-
-More information is only accessible by people who are already enrolled in Term 2
-of CarND. If you are enrolled, see [the project page](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/f758c44c-5e40-4e01-93b5-1a82aa4e044f/concepts/12dd29d8-2755-4b1b-8e03-e8f16796bea8)
-for instructions and the project rubric.
-
-## Hints!
-
-* You don't have to follow this directory structure, but if you do, your work
-  will span all of the .cpp files here. Keep an eye out for TODOs.
-
-## Call for IDE Profiles Pull Requests
-
-Help your fellow students!
-
-We decided to create Makefiles with cmake to keep this project as platform
-agnostic as possible. Similarly, we omitted IDE profiles in order to we ensure
-that students don't feel pressured to use one IDE or another.
-
-However! We'd love to help people get up and running with their IDEs of choice.
-If you've created a profile for an IDE that you think other students would
-appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
-profile, you'd add:
-
-* /ide_profiles/vscode/.vscode
-* /ide_profiles/vscode/README.md
-
-The README should explain what the profile does, how to take advantage of it,
-and how to install it.
-
-Regardless of the IDE used, every submitted project must
-still be compilable with cmake and make.
